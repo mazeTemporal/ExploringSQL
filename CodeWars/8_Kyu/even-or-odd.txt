@@ -1,0 +1,18 @@
+// https://www.codewars.com/kata/even-or-odd/train/sql
+
+/*
+You will be given a table, numbers, with one column number.
+Return a table with a column is_even containing "Even" or "Odd" depending on number column values.
+numbers table schema
+
+    number INT
+
+output table schema
+
+    is_even STRING
+*/
+
+SELECT is_even
+FROM (VALUES (0, 'Even'), (1, 'Odd')) x(number, is_even)
+JOIN numbers ON (((numbers.number % 2) + 2) % 2) = x.number
+
